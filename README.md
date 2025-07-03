@@ -1,7 +1,12 @@
-# OGX-Mini
-![OGX-Mini Boards](images/OGX-Mini-github.jpg "OGX-Mini Boards")
+# OGX-LIVE
+![OGX-Mini Boards](images/20250701_232110.jpg "OGX-LIVE Shell") 
 
-Firmware for the RP2040, capable of emulating gamepads for several game consoles. The firmware comes in many flavors, supported on the [Adafruit Feather USB Host board](https://www.adafruit.com/product/5723), Pi Pico, Pi Pico 2, Pi Pico W, Pi Pico 2 W, Waveshare RP2040-Zero, Pico/ESP32 hybrid, and a 4-Channel RP2040-Zero setup.
+Fully Integrated OGX-Mini and Xbox Live Communicator
+The all-in-one solution for using modern controllers on Insignia
+
+Combining the advanced controller emulation support of WiredOpposite's OGX-Mini with Ryzee119's HAWK communicator, you can now play online with the comfort and precision of modern controllers while berating your Warthog driver for going in the wrong direction.
+
+![PCB Layout](images/3D_PCB1_2025-07-02.png "PCB Layout") 
 
 [**Visit the web app here**](https://wiredopposite.github.io/OGX-Mini-WebApp/) to change your mappings and deadzone settings. To pair the OGX-Mini with the web app via USB, plug your controller in, then connect it to your PC, hold **Start + Left Bumper + Right Bumper** to enter web app mode. Click "Connect via USB" in the web app and select the OGX-Mini. You can also pair via Bluetooth, no extra steps are needed in that case. 
 
@@ -97,46 +102,33 @@ Please visit [**this page**](https://bluepad32.readthedocs.io/en/latest/supporte
 - Button macros
 - Rumble settings (intensity, enabled/disable, etc.)
 
-## Hardware
-For Pi Pico, RP2040-Zero, 4 channel, and ESP32 configurations, please see the hardware folder for diagrams.
+Pre-Launch Sale. Estimated ship date: August 6th. 
 
-I've designed a PCB for the RP2040-Zero so you can make a small form-factor adapter yourself. The gerber files, schematic, and BOM are in Hardware folder.
+Recommended configuration: 12 foot 3.5mm TTRS cable and 12 foot USB-A cable
+Alternatively you could use a USB-C extension and then shorter cable runs for the headset and controller.
+8-BitDo or equivalent wireless adapter is necessary for wireless function. 
 
-<img src="images/OGX-Mini-rpzero-int.jpg" alt="OGX-Mini Boards" width="400">
+The OGX-LIVE provides feature parity with the original communicator with the following differences:
+- Dual independent processors for gamepad and audio processing to eliminate latency
+- Support for a wide array of modern controllers and input devices. Full list available on the OGX-LIVE Github repository
+- A 3.5mm TRRS jack is used to support more generic headsets. (Stereo headsets will output as mono.)
+- The volume wheel is replaced with a button. Volume is indicated by LED brightness.
+- The Xbox chat feature only outputs voice audio, so a single ear chat headset is recommended.
 
-If you would like a prebuilt unit, you can purchase one, with cable and Xbox adapter included, from my [**Etsy store**](https://www.etsy.com/listing/1426992904/ogx-mini-controller-adapter-for-original).
+Tip: When searching online for compatible headsets use the term: "mono chat headset 3.5" to get the best results for single ear chat headsets
 
-## Adding supported controllers
-If your third party controller isn't working, but the original version is listed above, send me the device's VID and PID and I'll add it so it's recognized properly.
+Usage:
+**Press the button to increment the volume. Once maximum volume is reached, it will cycle back to zero.
+**Hold the button for 1 second to mute and disable the microphone input (LED will flash at 1Hz).
+**Hold the button 2 seconds to enter microphone gain adjustment mode (LED will flash at 4Hz).
+**Volume and microphone gain adjustments will be saved internally. You can reset these to default by holding the button down for 8 seconds.
 
-## Build
-### RP2040
-You can compile this for different boards with the CMake argument ```OGXM_BOARD``` while configuring the project. 
-
-The options are:
-- ```PI_PICO``` 
-- ```PI_PICO2``` 
-- ```PI_PICOW``` 
-- ```PI_PICO2W``` 
-- ```RP_ZERO``` 
-- ```ADA_FEATHER``` 
-- ```PICO_ESP32``` 
-- ```EXTERNAL_4CH```
-
-You can also set ```MAX_GAMEPADS``` which, if greater than one, will only support DInput (PS3) and Switch.
-
-You'll need git, python3, CMake, Ninja and the GCC ARM toolchain installed. CMake scripts will patch some files in Bluepad32 and BTStack and also make sure all git submodules (plus their submodules and dependencies) are downloaded. Here's an example on Windows:
-```
-git clone --recursive https://github.com/wiredopposite/OGX-Mini.git
-cd OGX-Mini/Firmware/RP2040
-cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DOGXM_BOARD=PI_PICOW -DMAX_GAMEPADS=1
-cmake --build build
-```
-Or just install the GCC ARM toolchain and use the CMake Tools extension in VSCode.
-
-### ESP32
-Please see the Hardware directory for a diagram showing how to hookup the ESP32 to your RP2040.
-
-You will need ESP-IDF v5.1, esptool, python3, and git installed. If you use VSCode, you can install the ESP-IDF extension and configure the project for ESP-IDF v5.1, it'll download everything for you and then you just click the build button at the bottom of the window.
-
-When you build with ESP-IDF, Cmake will run a python script that copies the necessary BTStack files into the components directory, this is needed since BTStack isn't configured as an ESP-IDF component when you download it with git. 
+FAQ:
+Why can't I hear the in-game audio? 
+- The original Xbox's headset was designed to playback chat audio only, however, with the use of an external mixer you could mix the audio output from the Xbox with the chat audio from the Hawk for a full headphone gaming experience. 
+What is the pinout of the headphone jack?
+- OGX-LIVE's headphone jack is wired as per CTIA standard TRRS. There is another less common standard called OMTP. This will not work but adapters are available.
+Microphone is really quiet?
+- You can increase the microphone gain above default. Hold the Hawk button down for more than 2 seconds to enter gain adjustment mode. The LED will blink 4 times per second to show it is in the right mode then press the button to increase the gain. Hold for 1 second to exit. If this is still too quiet, you can modify the MAX_MICROPHONE_GAIN variable and recompile the code to bump it up even higher.
+Speaker is really quiet?
+- Adjust the volume by pressing the button until the LED is at its maximum brightness. Unfortunately, it is already compiled to the maximum allowable by OGX-LIVE. If it is still too quiet, your headset's impedance may be too low.
