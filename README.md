@@ -104,6 +104,8 @@ Please visit [**this page**](https://bluepad32.readthedocs.io/en/latest/supporte
 
 Pre-Launch Sale. Estimated ship date: August 6th. 
 
+## Communicator Use
+
 Recommended configuration: 12 foot 3.5mm TTRS cable and 12 foot USB-A cable
 Alternatively you could use a USB-C extension and then shorter cable runs for the headset and controller.
 8-BitDo or equivalent wireless adapter is necessary for wireless function. 
