@@ -8,6 +8,8 @@ Combining the advanced controller emulation support of WiredOpposite's OGX-Mini 
 
 ![Configs](images/backgroundwide.png "Recommended Configurations") 
 
+![Advanced](images/advancedconfig.png "Mixer Configurations") 
+
 [**Visit the web app here**](https://wiredopposite.github.io/OGX-Mini-WebApp/) to change your mappings and deadzone settings. To pair the OGX-Mini with the web app via USB, plug your controller in, then connect it to your PC, hold **Start + Left Bumper + Right Bumper** to enter web app mode. Click "Connect via USB" in the web app and select the OGX-Mini. You can also pair via Bluetooth, no extra steps are needed in that case. 
 
 ## Supported platforms
@@ -43,6 +45,7 @@ Start = Plus (Switch) = Options (Dualsense/DS4)
 After a new mode is stored, the RP2040 will reset itself so you don't need to unplug it.
 
 ## Supported devices
+![Controller List](images/controllerlist.jpg "Controller List") 
 ### Wired controllers
 - Original Xbox Duke and S
 - Xbox 360, One, Series, and Elite
@@ -97,12 +100,9 @@ Please visit [**this page**](https://bluepad32.readthedocs.io/en/latest/supporte
 - Wired Xbox 360 chatpad support
 - Wired Xbox One chatpad support
 - Switch (as input) rumble support
-- OG Xbox communicator support (in some form)
 - Generic bluetooth dongle support
 - Button macros
 - Rumble settings (intensity, enabled/disable, etc.)
-
-Pre-Launch Sale. Estimated ship date: August 6th. 
 
 ## Communicator Use
 
