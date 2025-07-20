@@ -6,7 +6,7 @@ The all-in-one solution for using modern controllers on Insignia
 
 Combining the advanced controller emulation support of WiredOpposite's OGX-Mini with Ryzee119's HAWK communicator, you can now play online with the comfort and precision of modern controllers while berating your Warthog driver for going in the wrong direction.
 
-![Configst](images/backgroundwide.png") 
+![Configs](images/backgroundwide.png "Recommended Configurations") 
 
 [**Visit the web app here**](https://wiredopposite.github.io/OGX-Mini-WebApp/) to change your mappings and deadzone settings. To pair the OGX-Mini with the web app via USB, plug your controller in, then connect it to your PC, hold **Start + Left Bumper + Right Bumper** to enter web app mode. Click "Connect via USB" in the web app and select the OGX-Mini. You can also pair via Bluetooth, no extra steps are needed in that case. 
 
